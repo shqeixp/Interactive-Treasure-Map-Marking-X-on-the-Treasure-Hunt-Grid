@@ -1,0 +1,32 @@
+line1 = ["___", "___", "___"]
+line2 = ["___", "___", "___"]
+line3 = ["___", "___", "___"]
+map = [line1, line2, line3]
+
+print("Hiding your treasure! X marks the spot.")
+
+while True:
+    user_input = input("Enter the position (e.g., A1, B2, C3) or 'quit' to exit: ")
+    
+    if user_input == 'quit':
+        break
+    
+    if len(user_input) != 2:
+        print("Invalid input. Please enter a position like A1, B2, C3.")
+        continue
+    
+    column, row = user_input[0], int(user_input[1])
+    
+    if column not in ['A', 'B', 'C'] or row not in [1, 2, 3]:
+        print("Invalid input. Please enter a position like A1, B2, C3.")
+        continue
+    
+    row -= 1  # Adjust row to match the list indices
+    if column == 'A':
+        map[row][0] = "X"
+    elif column == 'B':
+        map[row][1] = "X"
+    elif column == 'C':
+        map[row][2] = "X"
+    
+    print(f"{line1}\n{line2}\n{line3}")
